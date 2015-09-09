@@ -1,21 +1,30 @@
+//Main function
 var triangleTracker = function(sideA, sideB, sideC) {
-  if (sideA < (sideB + sideC) && sideB < (sideA + sideC) && sideC < (sideA + sideB)) {
-    if (sideA === sideB && sideB === sideC) {
-      return "Equilateral";
-    }
-    else if (sideA === sideB || sideB === sideC || sideC === sideA){
-      return "Isosceles";
-    }
-    else if (sideA !== sideB && sideB !== sideC && sideC !== sideA) {
-      return "Scalene";
-    }
+  if (isTriangle(sideA, sideB, sideC)) {
+    return triangleType(sideA, sideB, sideC);
   }
-
   else {
     return "These sides do not make a triangle.";
   }
-
 };
+
+//Determines if the entered side lengths could form a triangle
+var isTriangle = function(sideA, sideB, sideC) {
+    return sideA < (sideB + sideC) && sideB < (sideA + sideC) && sideC < (sideA + sideB);
+}
+
+//Determines what type of triangle it is
+var triangleType = function(sideA, sideB, sideC) {
+  if (sideA === sideB && sideB === sideC) {
+    return "Equilateral";
+  }
+  else if (sideA === sideB || sideB === sideC || sideC === sideA){
+    return "Isosceles";
+  }
+  else if (sideA !== sideB && sideB !== sideC && sideC !== sideA) {
+    return "Scalene";
+  }
+}
 
 
 $(document).ready(function() {
