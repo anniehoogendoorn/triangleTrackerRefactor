@@ -26,7 +26,6 @@ var triangleType = function(sideA, sideB, sideC) {
   }
 }
 
-
 $(document).ready(function() {
   $("form#triangle").submit(function(event) {
     var sideA = parseInt($("input#sideA").val());
